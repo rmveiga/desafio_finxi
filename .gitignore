@@ -6,6 +6,11 @@ __pycache__/
 # C extensions
 *.so
 
+.idea/
+docs/
+/demanda/migrations/
+/peca/migrations/
+
 # Distribution / packaging
 .Python
 build/
