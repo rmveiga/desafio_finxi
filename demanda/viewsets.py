@@ -6,6 +6,9 @@ from .serializers import DemandaSerializer
 
 
 class DemandaViewSet(viewsets.ModelViewSet):
+    model = Demanda
+    serializer_class = DemandaSerializer
+
     def list(self, request, *args, **kwargs):
         usuario = request.user
         if usuario.is_superuser:
@@ -17,3 +20,9 @@ class DemandaViewSet(viewsets.ModelViewSet):
 
         serializer = DemandaSerializer(queryset, many=True)
         return Response(serializer.data)
+
+    def perform_create(self, serializer):
+        usuario = self.request.user
+        serializer.validated_data.update({'anunciante': usuario})
+        serializer.save()
+

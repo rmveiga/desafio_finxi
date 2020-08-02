@@ -9,3 +9,5 @@ class DemandaSerializer(serializers.ModelSerializer):
         fields = [
             'end_entrega', 'info_contato', 'status', 'peca', 'anunciante'
         ]
+        read_only_fields = ['status', 'anunciante']
+        # depth = 1
