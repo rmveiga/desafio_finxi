@@ -17,8 +17,10 @@ from django.contrib import admin
 from django.urls import path, include
 
 from peca.urls import peca_router
+from demanda.urls import demanda_router
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(peca_router.urls)),
+    path('api/', include(demanda_router.urls)),
 ]
