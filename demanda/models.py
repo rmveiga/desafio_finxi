@@ -12,14 +12,3 @@ class Demanda(models.Model):
 
     def __str__(self):
         return f'id: {str(self.pk)} - {str(self.peca)} - {str(self.anunciante)} - status: {str(self.status)}'
-
-    # def status_img(self):
-    #     self.img_true = r'img/baseline-check_circle_outline.svg'
-    #     self.img_false = r'img/baseline-highlight_off.svg'
-    #     if self.status:
-    #         return r'<img src="%s"/>' % self.img_true
-    #     else:
-    #         return '<img src="{self.img_false}"/>'
-    #
-    # status_img.allow_tags = True
-    # status_img.short_description = 'Status de Finalização'
