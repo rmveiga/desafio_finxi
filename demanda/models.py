@@ -9,3 +9,6 @@ class Demanda(models.Model):
     status = models.BooleanField(default=False, verbose_name='Status de Finalização')
     peca = models.ForeignKey(Peca, on_delete=models.DO_NOTHING)
     anunciante = models.ForeignKey(User, on_delete=models.DO_NOTHING)
+
+    def __str__(self):
+        return f'id: {str(self.pk)} - {str(self.peca)} - {str(self.anunciante)} - status: {str(self.status)}'

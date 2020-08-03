@@ -1,5 +1,6 @@
 from rest_framework import viewsets, status
 from rest_framework.response import Response
+from rest_framework.decorators import action
 
 from .models import Demanda
 from .serializers import DemandaSerializer
@@ -8,6 +9,24 @@ from .serializers import DemandaSerializer
 class DemandaViewSet(viewsets.ModelViewSet):
     model = Demanda
     serializer_class = DemandaSerializer
+
+    @action(detail=True, methods=['post'])
+    def finalizar_demanda(self, request, pk=None):
+        usuario = request.user
+        if not usuario.is_staff and not usuario.is_superuser:
+            return Response({'Acesso negado': 'Você não têm permissão para finalizar demandas'})
+
+        demanda = Demanda.objects.get(pk=pk)
+        if usuario != demanda.anunciante:
+            return Response({'Acesso negado': 'Você não têm permissão para finalizar esta demanda'})
+        else:
+            instance = demanda
+            serializer = self.get_serializer(instance, data=request.data, partial=True)
+            serializer.is_valid(raise_exception=True)
+            serializer.validated_data.update({'status': True})
+            self.perform_update(serializer)
+
+            return Response(serializer.data)
 
     def list(self, request, *args, **kwargs):
         usuario = request.user
@@ -62,7 +81,7 @@ class DemandaViewSet(viewsets.ModelViewSet):
             return Response({'Acesso negado': 'Você não têm permissão para alterar esta demanda'})
         else:
             partial = kwargs.pop('partial', False)
-            instance = demanda # self.get_object()
+            instance = demanda
             serializer = self.get_serializer(instance, data=request.data, partial=partial)
             serializer.is_valid(raise_exception=True)
             self.perform_update(serializer)
