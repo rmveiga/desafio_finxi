@@ -20,9 +20,11 @@ from django.conf.urls.static import static
 
 from peca.urls import peca_router
 from demanda.urls import demanda_router
+from usuario.urls import usuario_router
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/', include(usuario_router.urls)),
     path('api/', include(peca_router.urls)),
     path('api/', include(demanda_router.urls)),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

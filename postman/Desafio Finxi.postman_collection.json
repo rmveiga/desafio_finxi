@@ -1,0 +1,770 @@
+{
+	"info": {
+		"_postman_id": "f72f4e40-2ecb-4273-8f1b-e786fbe1982c",
+		"name": "Desafio Finxi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET",
+			"item": [
+				{
+					"name": "Peças",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token 6cde2b6e1a44f3137954a63af6cfa8af152a4696",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/pecas/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"pecas",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Demandas(Usuário Autorizado)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token 6cde2b6e1a44f3137954a63af6cfa8af152a4696",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/demandas/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"demandas",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Demandas(Usuário Não Autorizado)",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "Token 038c7a5360deb757d0bf3177709b74826aec9801",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Token 6cde2b6e1a44f3137954a63af6cfa8af152a4696"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/demandas/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"demandas",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DemandasDetail(Usuário Autorizado)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token 6cde2b6e1a44f3137954a63af6cfa8af152a4696",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/demandas/1/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"demandas",
+								"1",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DemandasDetail(Usuário Não Autorizado)",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "Token 038c7a5360deb757d0bf3177709b74826aec9801",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Token 6cde2b6e1a44f3137954a63af6cfa8af152a4696"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/demandas/1/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"demandas",
+								"1",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "POST",
+			"item": [
+				{
+					"name": "Demanda(Usuário Autorizado)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "end_entrega",
+									"value": "Av. Tal - Grajaú",
+									"type": "text"
+								},
+								{
+									"key": "info_contato",
+									"value": "(21) 99999-9999",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "True",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "peca",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "anunciante",
+									"value": "2",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/demandas/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"demandas",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Demanda(Usuário Não Autorizado)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token 6cde2b6e1a44f3137954a63af6cfa8af152a4696",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "end_entrega",
+									"value": "Av. Tal - Grajaú",
+									"type": "text"
+								},
+								{
+									"key": "info_contato",
+									"value": "(21) 99999-9999",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "True",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "peca",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "anunciante",
+									"value": "2",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/demandas/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"demandas",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Finalizar Demanda(Usuário Autorizado)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token 6cde2b6e1a44f3137954a63af6cfa8af152a4696",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "end_entrega",
+									"value": "Av. Tal - Grajaú",
+									"type": "text"
+								},
+								{
+									"key": "info_contato",
+									"value": "(21) 99999-9999",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "True",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "peca",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "anunciante",
+									"value": "2",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/demandas/9/finalizar_demanda/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"demandas",
+								"9",
+								"finalizar_demanda",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Finalizar Demanda(Usuário Não Autorizado)",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "Token 038c7a5360deb757d0bf3177709b74826aec9801",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "end_entrega",
+									"value": "Av. Tal - Grajaú",
+									"type": "text"
+								},
+								{
+									"key": "info_contato",
+									"value": "(21) 99999-9999",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "True",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "peca",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "anunciante",
+									"value": "2",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/demandas/9/finalizar_demanda/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"demandas",
+								"9",
+								"finalizar_demanda",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Novo Usuário",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "joao@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "username",
+									"value": "João",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "abcd@123456",
+									"type": "text"
+								},
+								{
+									"key": "password2",
+									"value": "abcd@123456",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/usuario/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"usuario",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "PATCH",
+			"item": [
+				{
+					"name": "Demanda(Usuário Autorizado)",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "end_entrega",
+									"value": "Av. Tal - Grajaú",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "info_contato",
+									"value": "(21) 99999-9999",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "True",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "peca",
+									"value": "2",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "anunciante",
+									"value": "2",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/demandas/1/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"demandas",
+								"1",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Demanda(Usuário Não Autorizado)",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "Token 038c7a5360deb757d0bf3177709b74826aec9801",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "end_entrega",
+									"value": "Av. Tal - Grajaú",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "info_contato",
+									"value": "(21) 99999-9999",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "True",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "peca",
+									"value": "2",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "anunciante",
+									"value": "2",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/demandas/1/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"demandas",
+								"1",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "DELETE",
+			"item": [
+				{
+					"name": "Demanda(Usuário Autorizado)",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Token 6cde2b6e1a44f3137954a63af6cfa8af152a4696"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/demandas/1/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"demandas",
+								"1",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Demanda(Usuário Não Autorizado)",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "Token 038c7a5360deb757d0bf3177709b74826aec9801",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Token 6cde2b6e1a44f3137954a63af6cfa8af152a4696"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/demandas/1/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"demandas",
+								"1",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"auth": {
+		"type": "apikey",
+		"apikey": [
+			{
+				"key": "value",
+				"value": "Token 6cde2b6e1a44f3137954a63af6cfa8af152a4696",
+				"type": "string"
+			},
+			{
+				"key": "key",
+				"value": "Authorization",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "b8b27d7f-1cbb-4115-8157-91d25a15a411",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "4de8c039-8d17-4731-a565-32cec4553aee",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

@@ -16,9 +16,15 @@ class DemandaViewSet(viewsets.ModelViewSet):
         if not usuario.is_staff and not usuario.is_superuser:
             return Response({'Acesso negado': 'Você não têm permissão para finalizar demandas'})
 
-        demanda = Demanda.objects.get(pk=pk)
+        try:
+            demanda = Demanda.objects.get(pk=pk)
+        except Exception:
+            return Response({'Aviso': 'Demanda não encontrada'})
+
         if usuario != demanda.anunciante:
             return Response({'Acesso negado': 'Você não têm permissão para finalizar esta demanda'})
+        if demanda.status:
+            return Response({'Aviso': 'Esta demanda já está finalizada'})
         else:
             instance = demanda
             serializer = self.get_serializer(instance, data=request.data, partial=True)
@@ -45,7 +51,11 @@ class DemandaViewSet(viewsets.ModelViewSet):
         if not usuario.is_staff and not usuario.is_superuser:
             return Response({'Acesso negado': 'Você não têm permissão para visualizar demandas'})
 
-        demanda = Demanda.objects.get(pk=kwargs.get('pk'))
+        try:
+            demanda = Demanda.objects.get(pk=kwargs.get('pk'))
+        except Exception:
+            return Response({'Aviso': 'Demanda não encontrada'})
+
         if usuario != demanda.anunciante:
             return Response({'Acesso negado': 'Você não têm permissão para visualizar esta demanda'})
         else:
@@ -76,7 +86,11 @@ class DemandaViewSet(viewsets.ModelViewSet):
         if not usuario.is_staff and not usuario.is_superuser:
             return Response({'Acesso negado': 'Você não têm permissão para alterar demandas'})
 
-        demanda = Demanda.objects.get(pk=kwargs.get('pk'))
+        try:
+            demanda = Demanda.objects.get(pk=kwargs.get('pk'))
+        except Exception:
+            return Response({'Aviso': 'Demanda não encontrada'})
+
         if usuario != demanda.anunciante:
             return Response({'Acesso negado': 'Você não têm permissão para alterar esta demanda'})
         else:
@@ -93,11 +107,18 @@ class DemandaViewSet(viewsets.ModelViewSet):
         if not usuario.is_staff and not usuario.is_superuser:
             return Response({'Acesso negado': 'Você não têm permissão para excluir demandas'})
 
-        demanda = Demanda.objects.get(pk=kwargs.get('pk'))
+        try:
+            demanda = Demanda.objects.get(pk=kwargs.get('pk'))
+        except Exception:
+            return Response({'Aviso': 'Demanda não encontrada'})
+
         if usuario != demanda.anunciante:
             return Response({'Acesso negado': 'Você não têm permissão para excluir esta demanda'})
         else:
             instance = demanda
             self.perform_destroy(instance)
 
-            return Response(status=status.HTTP_204_NO_CONTENT)
+            return Response(
+                {'Aviso': 'Demanda excluída com sucesso'},
+                status=status.HTTP_204_NO_CONTENT
+            )
